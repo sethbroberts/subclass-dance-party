@@ -1,6 +1,11 @@
-var makeBlinkyDancer = function(top, left, timeBetweenSteps){
+var makeNewDancer = function(top, left, timeBetweenSteps){
   //var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
-  makeDancer.call(this, top, left, timeBetweenSteps);
+
+  this.top = top;
+  this.left = left;
+
+  //order matters, need this statement after lines 4 & 5
+  makeDancer.call(this, top, left, timeBetweenSteps); 
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -20,10 +25,21 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   //return blinkyDancer;
 };
 
-makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
-makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
-makeBlinkyDancer.prototype.step = function () {
+makeNewDancer.prototype = Object.create(makeDancer.prototype);
+makeNewDancer.prototype.constructor = makeNewDancer;
+makeNewDancer.prototype.step = function () {
   //makeDancer.prototype.step.call(this);           //either this or next line works
   makeDancer.prototype.step.bind(this)();
   this.$node.toggle();
+};
+makeNewDancer.prototype.setPosition = function (top, left) {
+  var styleSettings = {
+    'top': this.top,
+    'left': this.left,
+    'border-color': 'blue',
+    'border-radius': '10px',
+    'border-width': '10px',
+    'border-style': 'solid'
+  };
+  this.$node.css(styleSettings);  
 };
