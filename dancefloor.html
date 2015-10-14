@@ -8,13 +8,24 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/newDancer.js"></script>
     <script src="src/thirdDancer.js"></script>
+    <script src="src/dogDancer.js"></script>
+    <script src="src/lineup.js"></script>
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeNewDancer">add a blue blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeThirdDancer">add a green blinky dancer</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">Red Blinky</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeNewDancer">Blue Blinky</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeThirdDancer">Green Blinky</a>    
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeDogDancer">Dog</a>
+      <a href="#" class="addDancerButton lineupButton" data-dancer-maker-function-name="lineup">Lineup</a> 
+
+      <audio controls>
+        <source src="default.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+
     </div>
     <script src="src/init.js"></script>
   </body>
